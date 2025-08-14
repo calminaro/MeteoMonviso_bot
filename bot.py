@@ -19,11 +19,12 @@ async def meteo(update: Update, context: ContextTypes.DEFAULT_TYPE):
         response.raise_for_status()
 
         # Salva temporaneamente il PDF
-        with open("meteomonviso.pdf", "wb") as f:
+        file_path = "/tmp/meteomonviso.pdf"
+        with open(file_path, "wb") as f:
             f.write(response.content)
 
         # Invia il PDF come documento
-        await update.message.reply_document(document=open("meteomonviso.pdf", "rb"))
+        await update.message.reply_document(document=open(file_path, "rb"))
 
     except Exception as e:
         await update.message.reply_text(f"Errore nel recupero del PDF: {e}")
