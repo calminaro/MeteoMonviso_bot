@@ -6,7 +6,6 @@ WORKDIR /app
 # Copia file di configurazione e script
 COPY requirements.txt .
 COPY bot.py .
-COPY config.conf .
 
 # Installa le dipendenze
 RUN pip install --no-cache-dir -r requirements.txt

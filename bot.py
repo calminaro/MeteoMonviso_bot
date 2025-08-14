@@ -1,11 +1,9 @@
 import requests
-import configparser
+import os
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-config = configparser.ConfigParser()
-config.read("config.conf")
-BOT_TOKEN = config["telegram"]["BOT_TOKEN"]
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 PDF_URL = "https://www.parcomonviso.eu/spool/meteomonviso.last.pdf"
 
